@@ -6,7 +6,7 @@ RUN yum -y install sqlite3 gcc gcc-c++ make openssl-devel zlib-devel readline-de
 
 RUN mkdir /work
 WORKDIR /work
-RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && tar -zxvf ruby-2.1.2.tar.gz && cd /work/ruby-2.1.2 && ./configure --disable-install-doc && make && make install
+RUN curl -O http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.2.tar.gz && tar -zxvf ruby-2.1.2.tar.gz && cd /work/ruby-2.1.2 && ./configure --disable-install-doc && make && make install && rm -rf /work/ruby-2.1.2.tar.gz
 RUN echo 'gem: --no-document' > /usr/local/etc/gemrc
 
 RUN \
